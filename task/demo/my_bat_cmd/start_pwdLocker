@@ -1,0 +1,2 @@
+@python.exe D:\pythonTest\task\demo\pwdLocker.py %*
+@pause
