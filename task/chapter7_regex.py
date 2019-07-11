@@ -59,6 +59,12 @@ if __name__ == '__main__':
     test = 'your number is 000,111,222'
     print('a comma every three words: ',numberMatcher.search(test).group())
 
+    #mapping the whole name
+    reg = r'[A-Z]\w* Nakamoto'
+    test = 'Satoshi Nakamoto'
+    testErr = 'satoshi Nakamoto'
+    print('name match: ',regMatch(test, reg).group(), type(regMatch(testErr, reg)))
+
 
     '''
     p.s.
