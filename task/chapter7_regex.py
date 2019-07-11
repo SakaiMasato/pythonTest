@@ -23,7 +23,7 @@ if __name__ == '__main__':
     pNumberGp = regMatch(msg, regGroup)
     print(pNumberGp.group(1)+ ' ' + pNumberGp.group(2) + ' ' + pNumberGp.group())
     areaCode, mainNumber = pNumberGp.groups()
-    print('groups' + areaCode + ' ' + mainNumber)
+    print('groups: ' + areaCode + ' ' + mainNumber)
 
     #pipeline
     heroReg = r'batMan|superMan'
@@ -53,6 +53,12 @@ if __name__ == '__main__':
     ttMsg = '<To serve man> for dinner>'
     print('greedy: ' + greedyRe.search(ttMsg).group())
     print('non greedy:' + nonGreedyRe.search(ttMsg).group())
+
+    # there is a comma every three words
+    numberMatcher = re.compile(r'(\d{3},)+\d{3}')
+    test = 'your number is 000,111,222'
+    print('a comma every three words: ',numberMatcher.search(test).group())
+
 
     '''
     p.s.
