@@ -9,4 +9,4 @@ def strongPasswordValidation(pwd):
     matcher = re.compile(regex)
     print(matcher.search(pwd).group())
 if __name__ == '__main__':
-    strongPasswordValidation('azA8fmskal')
+    strongPasswordValidation('azA8fmskal5')
