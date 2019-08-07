@@ -21,3 +21,5 @@ for folderName, subfolders, fileNames in os.walk('.'):
         if fileName.endswith('.zip'):
             continue # do not backup the backup file
         zipPack.write(os.path.join(folderName, fileName))
+
+zipPack.close()
