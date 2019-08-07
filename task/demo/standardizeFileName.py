@@ -3,7 +3,7 @@
 
 ' standardize the file name '
 
-import os
+import os, shutil, re
 
 path = os.path.abspath('standardizeFileName')
 #print(path)
@@ -16,3 +16,4 @@ for i in range(len(files)):
     indexs.append(index)
     if(files[i].find(str(i))<0):
         print(indexs[len(indexs)-1])
+        shutil.move(os.path.join(path,files[i]), os.path.join(path,'00'+str(i)+'.txt'))
