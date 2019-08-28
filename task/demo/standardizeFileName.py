@@ -14,6 +14,6 @@ for i in range(len(files)):
     index['k'] = i
     index['v'] = files[i]
     indexs.append(index)
-    if(files[i].find(str(i))<0):
+    if(files[i].find(str(i+1))<0):
         print(indexs[len(indexs)-1])
-        shutil.move(os.path.join(path,files[i]), os.path.join(path,'00'+str(i)+'.txt'))
+        shutil.move(os.path.join(path,files[i]), os.path.join(path,'00'+str(i+1)+'.txt'))
