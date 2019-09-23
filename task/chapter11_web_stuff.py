@@ -5,7 +5,9 @@
 
 __author__ = 'Bob'
 
-import requests,logging,bs4
+#selenium 和 req 的区别 ， selenium无法后端静默操作
+import requests,logging,bs4,time
+from selenium import webdriver
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s- %(message)s')
 
 
@@ -44,3 +46,29 @@ logging.debug(type(ftConw[0]))
 logging.debug(ftConw[0].getText())
 logging.debug(ftConw[0])
 logging.debug(ftConw[0].attrs)
+
+# selenium stuff
+browser = webdriver.Chrome()
+browser.get('https://baidu.com')
+'''
+    browser.find_element_by_class_name(name)
+    browser.find_elements_by_class_name(name)           使用CSS 类name 的元素
+    browser.find_element_by_css_selector(selector)
+    browser.find_elements_by_css_selector(selector)     匹配CSS selector 的元素
+    browser.find_element_by_id(id)
+    browser.find_elements_by_id(id)                     匹配id 属性值的元素
+    browser.find_element_by_link_text(text)
+    browser.find_elements_by_link_text(text)            完全匹配提供的text 的<a>元素
+    browser.find_element_by_partial_link_text(text)
+    browser.find_elements_by_partial_link_text(text)    包含提供的text 的<a>元素
+    browser.find_element_by_name(name)
+    browser.find_elements_by_name(name)                 匹配name 属性值的元素
+    browser.find_element_by_tag_name(name)
+    browser.find_elements_by_tag_name(name)             匹配标签name 的元素(大小写无关，<a>元素匹配'a'和'A')
+'''
+time.sleep(5)
+search_box = browser.find_element_by_id('kw')
+search_box.send_keys('wiki')
+search_box.submit()
+time.sleep(5)
+browser.quit()
