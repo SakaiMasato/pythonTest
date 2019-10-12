@@ -72,3 +72,23 @@ search_box.send_keys('wiki')
 search_box.submit()
 time.sleep(5)
 browser.quit()
+
+'''
+    from selenium.webdriver.common.keys import Keys
+    
+    Keys.DOWN, Keys.UP, Keys.LEFT,Keys.RIGHT 键盘箭头键
+    Keys.ENTER, Keys.RETURN 回车和换行键
+    Keys.HOME, Keys.END,
+    Keys.PAGE_DOWN,Keys.PAGE_UP
+    Home 键、End 键、PageUp 键和Page Down 键
+    Keys.ESCAPE, Keys.BACK_SPACE,Keys.DELETE Esc、Backspace 和字母键
+    Keys.F1, Keys.F2, . . . , Keys.F12 键盘顶部的F1 到F12 键
+    Keys.TAB Tab 键
+    
+    browser.back()
+    browser.forward()
+    browser.refresh()
+    browser.quit()
+'''
+
+
