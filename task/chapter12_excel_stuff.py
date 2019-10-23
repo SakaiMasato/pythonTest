@@ -20,3 +20,19 @@ logging.info('len(column): ' + str(sheet.max_column))
 logging.info('translate int to str: ' + get_column_letter(sheet.max_row))
 logging.info('translate str to int: ' + str(column_index_from_string('B')))
 logging.info(tuple(sheet['A1': 'C3']))
+
+logging.info('=================excel write==================')
+wb1 = openpyxl.Workbook()       ##create a new workbook
+sheet1 = wb1.worksheets[0]
+logging.info('sheet title: ' + sheet1.title)        #default sheet name is 'Sheet'
+sheet1.title = 'Spam Bacon Eggs sheet'              ##Modify first sheet name
+logging.info('sheet title: ' + sheet1.title)
+wb1.save('bobTestExcel.xlsx')
+
+wb2 = openpyxl.Workbook()
+wb2.create_sheet()
+wb2.create_sheet(index=0, title='1st sheet')
+wb2.create_sheet(index=2, title='middle sheet')
+sheet2 = wb2['middle sheet']
+sheet2.cell(1,1).value = 'Hello world'
+logging.info(sheet2['A1'].value)
