@@ -7,6 +7,7 @@ __author__ = 'Bob Bao'
 
 import openpyxl, logging
 from openpyxl.utils import get_column_letter, column_index_from_string
+from openpyxl.styles import Font, PatternFill, colors
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s- %(message)s')
 
 wb = openpyxl.load_workbook('bob.xlsx')
@@ -34,5 +35,27 @@ wb2.create_sheet()
 wb2.create_sheet(index=0, title='1st sheet')
 wb2.create_sheet(index=2, title='middle sheet')
 sheet2 = wb2['middle sheet']
+sheet2['A1'].font = Font(size=24, italic=True)      #font
+sheet2['A1'].fill = PatternFill(fill_type='solid', fgColor=colors.GREEN)      #fill
+sheet2.merge_cells('A1:D3')                         #merge cells
+sheet2.unmerge_cells('A1:D3')                       #unmerge_cells
+'''
+sheet.freeze_panes = 'A2' 行1
+sheet.freeze_panes = 'B1' 列A
+sheet.freeze_panes = 'C1' 列A 和列B
+sheet.freeze_panes = 'C2' 行1 和列A 和列B
+sheet.freeze_panes = 'A1'或
+sheet.freeze_panes = None
+'''
+sheet2.freeze_panes = 'A2'                          #freeze row 1
 sheet2.cell(1,1).value = 'Hello world'
+sheet2.row_dimensions[1].height = 70                #first row height
+sheet2.column_dimensions['A'].width = 20            #first col width
 logging.info(sheet2['A1'].value)
+wb2.save('bobTestExcel1.xlsx')
+
+
+#formula sheet['B9'] = '=SUM(B1:B8)'
+
+
+#############################graph###############################################
