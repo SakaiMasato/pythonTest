@@ -52,10 +52,18 @@ sheet2.cell(1,1).value = 'Hello world'
 sheet2.row_dimensions[1].height = 70                #first row height
 sheet2.column_dimensions['A'].width = 20            #first col width
 logging.info(sheet2['A1'].value)
-wb2.save('bobTestExcel1.xlsx')
-
 
 #formula sheet['B9'] = '=SUM(B1:B8)'
 
 
 #############################graph###############################################
+sheet3 = wb2['1st sheet']
+for i in range(1, 11):
+    sheet3['A' + str(i)] = i
+refObj = openpyxl.chart.Reference(sheet3, min_row=1, min_col=1, max_row=10, max_col=1)
+seriesObj = openpyxl.chart.Series(refObj, title='First series')
+chartObj = openpyxl.chart.BarChart()
+chartObj.title = 'My Chart'
+chartObj.append(seriesObj)
+sheet3.add_chart(chartObj, 'C5')
+wb2.save('bobTestExcel1.xlsx')
